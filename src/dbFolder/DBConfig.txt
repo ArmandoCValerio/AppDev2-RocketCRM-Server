@@ -1,0 +1,4 @@
+DRIVER=org.h2.Driver
+URL="jdbc:h2:tcp://localhost/C:/git/AppDev2-RocketCRM/src/dbFolder/RocketCRM"
+User="sa"
+Pwd=""
