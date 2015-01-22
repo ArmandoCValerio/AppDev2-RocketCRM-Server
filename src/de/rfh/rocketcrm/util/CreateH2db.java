@@ -18,7 +18,7 @@ public class CreateH2db
 		
 		try {
 			
-			String dbURL = "jdbc:h2:tcp://localhost/C:/git/AppDev2-RocketCRM/src/dbFolder/RocketCRM";	
+			String dbURL = "jdbc:h2:tcp://localhost/C:/git/AppDev2-RocketCRM-Server/src/dbFolder/RocketCRM";	
 			String driver = "org.h2.Driver";
 			String user = "sa";
 			String pwd = "";

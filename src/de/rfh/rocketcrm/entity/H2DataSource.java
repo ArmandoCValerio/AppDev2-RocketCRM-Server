@@ -5,7 +5,7 @@ import de.rfh.rocketcrm.entity.DataSource;
 
 public class H2DataSource implements DataSource {
 
-	public String dbURL = "jdbc:h2:tcp://localhost/C:/git/AppDev2-RocketCRM/src/dbFolder/RocketCRM";	
+	public String dbURL = "jdbc:h2:tcp://localhost/C:/git/AppDev2-RocketCRM-Server/src/dbFolder/RocketCRM";	
 	public String driver = "org.h2.Driver";
 	public String user = "sa";
 	public String pwd = "";
