@@ -1,12 +1,9 @@
 package de.rfh.rocketcrm.entity;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.sql.Connection;
-import java.util.Enumeration;
 import java.util.Hashtable;
 
 import de.rfh.rocketcrm.control.Kontakt;
@@ -63,44 +60,6 @@ public class FileDataSource implements DataSource
 	@Override
 	public void doDisConnect()  throws Exception
 	{
-		// TODO Auto-generated method stub
-		storeHashTable(hash);
+		
 	}
-
-	private void storeHashTable(Hashtable<Long, Kontakt> hash) throws Exception
-	{	
-		FileWriter fw = new FileWriter(dbFile);
-		BufferedWriter bw = new BufferedWriter(fw);	
-		
-		Enumeration<Long> e = hash.keys();
-		
-	    while (e.hasMoreElements()) 
-	    {
-	       Long hashId = e.nextElement();
-	       System.out.println(hashId + " --> " + hash.get(hashId));
-	       
-	       Kontakt objK = new Kontakt();
-	       
-	       objK = hash.get(hashId);
-	       if  (objK != null)
-	       {
-	    	   String str = Long.toString(objK.getcId()) + ";" + 
-	    		        objK.getcCrtDate() + ";" + 
-	       				objK.getcCrtUser() + ";" + 
-	       				objK.getcUpdtDate() + ";" + 
-	       				objK.getcUpdtUser() + ";" +
-	       				objK.getcNName() + ";" +
-	       				objK.getcVName() + ";" + 
-	       				objK.getcCompany() + ";" +
-	       				objK.getcCity() + ";" +
-	       				objK.getcBirthDay() + ";" +
-	       				objK.getcMail() + ";" +
-	       				objK.getcPhone() + ";" +
-	       				objK.getcVersion() + ";" + "\r\n";
-	       				
-	    	   bw.write(str);
-	       }
-	    }
-		bw.close();
-	}	
 }

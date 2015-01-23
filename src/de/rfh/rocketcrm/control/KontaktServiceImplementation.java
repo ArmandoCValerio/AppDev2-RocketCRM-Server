@@ -16,11 +16,11 @@ public class KontaktServiceImplementation extends UnicastRemoteObject implements
 
 	ErrorHandle oErrorHandler = new ErrorHandle();
 	
-	public KontaktDAO dao;	
+	private KontaktDAO dao;	
 	
 	public KontaktServiceImplementation() throws Exception 
 	{
-		this.dao = KontaktDAOFactory.getKontakteDAO(1);   // <---  hier H2 (0) oder File (1)
+		this.dao = KontaktDAOFactory.getKontakteDAO(0);   // <---  hier H2 (0) oder File (1)
 	}
 	
 	public List<Kontakt> getKontakte() throws Exception {
@@ -58,24 +58,45 @@ public class KontaktServiceImplementation extends UnicastRemoteObject implements
 	}
 
 	public Kontakt createKontakt(Kontakt k) throws Exception {
-		// TODO Auto-generated method stub
-		k = dao.createKontakt(k);
 		
+		try {
+			  k = dao.createKontakt(k);	  
+			}
+			catch (Exception e) {				
+				// Get Error Message based on Type of Exception/Error
+				String errorMessage = exceptionHandler(e);
+				// Error Output should happen in Client, not Server -> Message back to Client	
+	    	    throw new Exception(errorMessage);
+			}
 		return k;
 	}
 
 	public Kontakt deleteKontakt(Kontakt k) throws Exception {
-		// TODO Auto-generated method stub
-		k = dao.deleteKontakt(k);
 		
+		try {
+			k = dao.deleteKontakt(k); 
+			}
+			catch (Exception e) {				
+				// Get Error Message based on Type of Exception/Error
+				String errorMessage = exceptionHandler(e);
+				// Error Output should happen in Client, not Server -> Message back to Client	
+	    	    throw new Exception(errorMessage);
+			}
 		return k;
 	}
 	
 	
 	public Kontakt editKontakt(Kontakt k) throws Exception {
-		// TODO Auto-generated method stub
-		k = dao.editKontakt(k);
 		
+		try {
+				k = dao.editKontakt(k); 
+			}
+			catch (Exception e) {				
+				// Get Error Message based on Type of Exception/Error
+				String errorMessage = exceptionHandler(e);
+				// Error Output should happen in Client, not Server -> Message back to Client	
+	    	    throw new Exception(errorMessage);
+			}
 		return k;
 	}
 	

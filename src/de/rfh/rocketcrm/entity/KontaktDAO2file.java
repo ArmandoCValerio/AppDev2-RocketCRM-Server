@@ -8,9 +8,7 @@ import de.rfh.rocketcrm.control.Kontakt;
 import de.rfh.rocketcrm.util.HashQueue;
 
 public class KontaktDAO2file implements KontaktDAO {
-	
-	public DataSource myDataSource = new FileDataSource();
-	
+		
 	@Override
 	public List<Kontakt> getKontakte() throws Exception {
 		// TODO Auto-generated method stub
@@ -56,7 +54,6 @@ public class KontaktDAO2file implements KontaktDAO {
 		
 		FileDataSource.hash.put(c.getcId(),c);
 		
-		//myDataSource.doDisConnect();
 		HashQueue.hash2Queue(FileDataSource.hash);
 		return c;
 	}
@@ -76,7 +73,6 @@ public class KontaktDAO2file implements KontaktDAO {
 			{		
 				FileDataSource.hash.remove(c.getcId());
 				
-				//myDataSource.doDisConnect();
 				HashQueue.hash2Queue(FileDataSource.hash);
 			}
 		}
@@ -103,7 +99,6 @@ public class KontaktDAO2file implements KontaktDAO {
 				c.setcVersion(id);
 				FileDataSource.hash.put(c.getcId(),c);
 			
-				//myDataSource.doDisConnect();
 				HashQueue.hash2Queue(FileDataSource.hash);
 			}
 		}

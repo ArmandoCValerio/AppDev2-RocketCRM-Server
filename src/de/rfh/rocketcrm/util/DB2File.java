@@ -17,9 +17,7 @@ import de.rfh.rocketcrm.entity.DataSource;
 import de.rfh.rocketcrm.entity.H2DataSource;
 
 public class DB2File 
-{
-	private static DataSource myDataSource = new H2DataSource();
-	
+{	
 	public static void main(String[] args)
 	{
 		Connection myConnection = null;
@@ -57,6 +55,8 @@ public class DB2File
 	public static void getKontakt2Hash(Hashtable<Long, Kontakt> hash )  
 	{
 		try {
+			DataSource myDataSource = new H2DataSource();
+			
 			Connection myConnection = myDataSource.getConnection();
 			if  (myConnection != null) 
 			{

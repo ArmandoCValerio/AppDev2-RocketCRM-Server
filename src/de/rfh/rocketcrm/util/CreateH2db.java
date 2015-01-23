@@ -10,8 +10,7 @@ import de.rfh.rocketcrm.entity.H2DataSource;
 
 public class CreateH2db 
 {
-	private static DataSource myDataSource = new H2DataSource();
-	
+
 	public static void main(String[] args)
 	{
 		Connection myConnection = null;
@@ -50,6 +49,8 @@ public class CreateH2db
 	
 	public static void createTable() throws Exception, SQLException
 	{
+		DataSource myDataSource = new H2DataSource();
+		
 		Connection myConnection = myDataSource.getConnection();
 		if  (myConnection != null) 
 		{
@@ -76,6 +77,8 @@ public class CreateH2db
 	
 	public static void fillTable() throws Exception, SQLException
 	{
+		DataSource myDataSource = new H2DataSource();
+		
 		Connection myConnection = myDataSource.getConnection();
 		if  (myConnection != null) 
 		{
