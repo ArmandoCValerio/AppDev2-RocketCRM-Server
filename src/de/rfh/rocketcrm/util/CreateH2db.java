@@ -36,6 +36,7 @@ public class CreateH2db
 		{
 			try {
 				createTable();
+				deleteAllRecords();
 				fillTable();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -47,7 +48,7 @@ public class CreateH2db
 		}
 	}
 	
-	public static void createTable() throws Exception, SQLException
+	private static void createTable() throws Exception, SQLException
 	{
 		DataSource myDataSource = new H2DataSource();
 		
@@ -75,7 +76,7 @@ public class CreateH2db
 		}
 	}
 	
-	public static void fillTable() throws Exception, SQLException
+	private static void fillTable() throws Exception, SQLException
 	{
 		DataSource myDataSource = new H2DataSource();
 		
@@ -115,4 +116,16 @@ public class CreateH2db
 
 	}
 
+	private static void deleteAllRecords() throws Exception, SQLException
+	{
+		DataSource myDataSource = new H2DataSource();
+		
+		Connection myConnection = myDataSource.getConnection();
+		if  (myConnection != null) 
+		{
+			String sql ="DELETE FROM Kontakt";
+			PreparedStatement myStatement = myConnection.prepareStatement(sql);
+			myStatement.execute();
+		}
+	}
 }

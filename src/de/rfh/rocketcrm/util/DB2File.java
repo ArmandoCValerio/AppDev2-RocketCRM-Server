@@ -52,7 +52,7 @@ public class DB2File
 		}
 	}
 	
-	public static void getKontakt2Hash(Hashtable<Long, Kontakt> hash )  
+	private static void getKontakt2Hash(Hashtable<Long, Kontakt> hash )  
 	{
 		try {
 			DataSource myDataSource = new H2DataSource();
@@ -96,7 +96,7 @@ public class DB2File
 		}
 	}
 	
-	public static void storeHashTable(Hashtable<Long, Kontakt> hash)
+	private static void storeHashTable(Hashtable<Long, Kontakt> hash)
 	{
 		try
 		{		
